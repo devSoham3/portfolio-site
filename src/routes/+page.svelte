@@ -1,9 +1,9 @@
 <script>
   // Import your component sections
   import About from '$lib/About.svelte';
-  // import CV from '$lib/CV.svelte';
-  // import Highlights from '$lib/Highlights.svelte';
-  // import Projects from '$lib/Projects.svelte';
+  import CV from '$lib/CV.svelte';
+  import Highlights from '$lib/Highlights.svelte';
+  import Projects from '$lib/Projects.svelte';
 </script>
 
 <!-- Main container for entire page -->
@@ -20,9 +20,9 @@
 
   <!-- Each section component -->
   <About />
-  <!-- <CV /> -->
-  <!-- <Highlights /> -->
-  <!-- <Projects /> -->
+  <CV />
+  <Highlights />
+  <Projects />
 </div>
 
 <style>
