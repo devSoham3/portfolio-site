@@ -16,26 +16,23 @@ onMount(async () => {
 </script>
 
 <section id="about" class="mb-16 p-6 bg-gray-100 rounded-lg">
-    <h2 class="text-3xl font-bold mb-6 text-center">Get to know me...</h2>
-
     {#if error}
     <p>Error loading data.</p>
     {:else}
     {#if aboutData}
+    <h2 class="text-4xl font-bold mb-6">Get to know me...</h2>
+    <h3 class="text-2xl font-semibold text-center">
+        I am a graduate student from Rochester Institute of Technology, starting my career in data science & engineering.
+    </h3>
     <div class="flex flex-col md:flex-row items-center">
         <img
             src={aboutData.photo}
             alt={`Photo of ${aboutData.name}`}
             class="w-48 h-48 rounded-full object-cover mb-4 md:mr-8" />
-        <div class="text-center md:text-left">
-            <h3 class="text-2xl font-semibold">
-                I am a graduate student from Rochester Institute of Technology, starting my career in data science & engineering.
-            </h3>
-            <div class="text-center md:text-left">
-                {#each aboutData.description as desc_para}
-                <p class="text-gray-700 mb-4 text-justify">{desc_para}</p>
-                {/each}
-            </div>
+        <div class="py-3 text-left">
+            {#each aboutData.description as desc_para}
+            <p class="text-gray-1000 mb-4 text-justify">{desc_para}</p>
+            {/each}
         </div>
     </div>
     {:else}
