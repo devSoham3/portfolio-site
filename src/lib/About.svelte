@@ -20,7 +20,7 @@ onMount(async () => {
     <p class="text-danger">Error loading data.</p>
     {:else}
     {#if aboutData}
-    <h2 class="text-4xl font-bold mb-6 text-accent">Get to know me...</h2>
+    <h2 class="text-4xl font-bold mb-6 text-accent text-center">Get to know me...</h2>
     <h3 class="text-2xl font-semibold text-center text-foreground">
         I am a graduate student from Rochester Institute of Technology, starting my career in data science & engineering.
     </h3>
@@ -28,7 +28,7 @@ onMount(async () => {
         <img
             src={aboutData.photo}
             alt={`Photo of ${aboutData.name}`}
-            class="w-48 h-48 rounded-full object-cover mb-4 md:mr-8" />
+            class="w-150 h-100 rounded-full object-cover mb-4 md:mr-8" />
         <div class="py-3 text-left">
             {#each aboutData.description as desc_para}
             <p class="mb-4 text-justify text-muted">{desc_para}</p>
