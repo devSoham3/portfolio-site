@@ -36,6 +36,8 @@ onMount(async () => {
             {/each}
         </div>
     </div>
+    {:else}
+    <!-- TODO: write the skeleton -->
     {/if}
     {/if}
 </section>
