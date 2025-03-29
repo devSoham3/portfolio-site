@@ -8,11 +8,11 @@ import Highlights from '$lib/Highlights.svelte';
 
 <!-- Main container for entire page -->
 <div class="bg-background">
-    <div class="container mx-auto max-w-4xl px-4 py-8 text-foreground">
-        <nav class="mb-8 sticky top-0 bg-surface z-10 shadow-sm text-foreground text-right">
-            <ul class="flex justify-center space-x-6 py-4">
-                <li><a href="#about" class="hover:text-primary-light">About</a></li>
-                <li><a href="#highlights" class="hover:text-primary-light">Highlights</a></li>
+    <div class="container mx-auto max-w-5xl px-4 text-foreground">
+        <nav class="mb-8 sticky top-0 bg-surface z-10 shadow-sm text-foreground">
+            <ul class="flex justify-end space-x-6 py-4">
+                <li><a href="#about" class="font-retrogm hover:text-rblue">About</a></li>
+                <li><a href="#highlights" class="font-retrogm hover:text-rblue">Highlights</a></li>
             </ul>
         </nav>
 
