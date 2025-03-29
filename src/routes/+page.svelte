@@ -12,6 +12,7 @@ import Highlights from '$lib/Highlights.svelte';
         <nav class="mb-8 sticky top-0 bg-surface z-10 shadow-sm text-foreground">
             <ul class="flex justify-end space-x-6 py-4">
                 <li><a href="#about" class="font-retrogm hover:text-rblue">About</a></li>
+                <li>|</li>
                 <li><a href="#highlights" class="font-retrogm hover:text-rblue">Highlights</a></li>
             </ul>
         </nav>
@@ -21,8 +22,4 @@ import Highlights from '$lib/Highlights.svelte';
     </div>
 </div>
 
-<style>
-:global(html) {
-    scroll-behavior: smooth;
-}
-</style>
+<style></style>
