@@ -75,6 +75,18 @@
     }
   }
 
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* background-color: theme('colors.background'); or hardcode like #000 if needed */
+    scroll-behavior: smooth;
+  }
+  
+  /* #svelte {
+    min-height: 100%;
+  } */
+
 /* @theme {
 --animate-shine: shine 1s;
 @keyframes shine {
