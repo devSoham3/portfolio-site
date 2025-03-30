@@ -3,7 +3,7 @@
 import About from '$lib/About.svelte';
 import Highlights from '$lib/Highlights.svelte';
 // import CV from '$lib/CV.svelte';
-// import Projects from '$lib/Projects.svelte';
+import Projects from '$lib/Projects.svelte';
 </script>
 
 <!-- Main container for entire page -->
@@ -14,11 +14,14 @@ import Highlights from '$lib/Highlights.svelte';
                 <li><a href="#about" class="font-retrogm hover:text-rblue">About</a></li>
                 <li>|</li>
                 <li><a href="#highlights" class="font-retrogm hover:text-rblue">Highlights</a></li>
+                <li>|</li>
+                <li><a href="#projects" class="font-retrogm hover:text-rblue">Projects</a></li>
             </ul>
         </nav>
 
         <About />
         <Highlights />
+        <Projects />
     </div>
 </div>
 
