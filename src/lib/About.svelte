@@ -15,7 +15,7 @@ onMount(async () => {
 });
 </script>
 
-<section id="about" class="mb-16 p-6 bg-surface rounded-lg text-foreground">
+<section id="about" class="mb-16 p-6 bg-surface rounded-lg text-foreground min-h-screen">
     {#if error}
     <p class="text-danger">Error loading data.</p>
     {:else}
