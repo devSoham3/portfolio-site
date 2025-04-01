@@ -15,7 +15,7 @@ onMount(async () => {
 });
 </script>
 
-<section id="projects" class="mb-16 p-6 bg-background rounded-lg">
+<section id="projects" class="mb-16 p-6 bg-background rounded-lg min-h-screen">
     {#if error}
     <p>Error loading data.</p>
     {:else}
