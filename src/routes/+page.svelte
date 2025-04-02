@@ -2,7 +2,7 @@
 // Import your component sections
 import About from '$lib/About.svelte';
 import Highlights from '$lib/Highlights.svelte';
-// import CV from '$lib/CV.svelte';
+import CV from '$lib/CV.svelte';
 import Projects from '$lib/Projects.svelte';
 
 // transitions
@@ -34,6 +34,8 @@ function navigateTo(section) {
                 <li><button on:click={() => navigateTo('highlights')} class="font-retrogm hover:text-rblue">Highlights</button></li>
                 <li>|</li>
                 <li><button on:click={() => navigateTo('projects')} class="font-retrogm hover:text-rblue">Projects</button></li>
+                <li>|</li>
+                <li><button on:click={() => navigateTo('cv')} class="font-retrogm hover:text-rblue">Curriculum Vitae</button></li>
             </ul>
         </nav>
 
@@ -49,6 +51,10 @@ function navigateTo(section) {
         {:else if currentSection === 'projects'}
         <div in:slide out:slide>
             <Projects />
+        </div>
+        {:else if currentSection === 'cv'}
+        <div in:slide out:slide>
+            <CV />
         </div>
         {/if}
     </div>
