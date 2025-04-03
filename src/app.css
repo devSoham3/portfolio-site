@@ -1,88 +1,98 @@
 @font-face {
-    font-family: PressStart;
-    src: url("/fonts/prstartk.ttf");
+  font-family: PressStart;
+  src: url("/fonts/prstartk.ttf");
 }
+
 @font-face {
-    font-family: Alagard;
-    src: url("/fonts/alagard.ttf");
+  font-family: Alagard;
+  src: url("/fonts/alagard.ttf");
 }
+
 @font-face {
-    font-family: KiwiSoda;
-    src: url("/fonts/KiwiSoda.ttf");
+  font-family: KiwiSoda;
+  src: url("/fonts/KiwiSoda.ttf");
 }
+
 @font-face {
-    font-family: Minecraftia;
-    src: url("/fonts/Minecraftia-Regular.ttf");
+  font-family: Minecraftia;
+  src: url("/fonts/Minecraftia-Regular.ttf");
 }
+
 @font-face {
-    font-family: Pixellari;
-    src: url("/fonts/Pixellari.ttf");
+  font-family: Pixellari;
+  src: url("/fonts/Pixellari.ttf");
 }
+
 @font-face {
-    font-family: RetroGaming;
-    src: url("/fonts/RetroGaming.ttf");
+  font-family: RetroGaming;
+  src: url("/fonts/RetroGaming.ttf");
 }
+
 @font-face {
-    font-family: PixelOpt;
-    src: url("/fonts/PixelOperatorMono.ttf");
+  font-family: PixelOpt;
+  src: url("/fonts/PixelOperatorMono.ttf");
 }
 
 
 @import 'tailwindcss';
 
 @theme {
-    --color-background: rgb(3, 0, 28);
-    --color-surface: rgb(3, 0, 28);
-    --color-primary: rgb(59, 130, 246);
-    --color-primary-light: rgb(96, 165, 250);
-    --color-secondary: rgb(251, 191, 36);
-    --color-accent: rgb(59, 130, 246);
-    --color-foreground: rgb(241, 245, 249);
-    --color-muted: rgb(148, 163, 184);
-    --color-border: rgb(51, 65, 85);
-    --color-danger: rgb(239, 68, 68);
-    --color-warning: rgb(245, 158, 11);
-    --color-success: rgb(34, 197, 94);
-    --color-neon: rgb(195, 42, 255);
-    --color-rdark: rgb(44, 13, 42);
-    --color-rblue: rgb(97, 114, 197);
-    --color-rpink: rgb(237, 46, 165);
-    --color-rorng: rgb(250, 128, 87);
-    --color-ryllw: rgb(250, 208, 9)
+  --color-background: rgb(3, 0, 28);
+  --color-surface: rgb(3, 0, 28);
+  --color-primary: rgb(59, 130, 246);
+  --color-primary-light: rgb(96, 165, 250);
+  --color-secondary: rgb(251, 191, 36);
+  --color-accent: rgb(59, 130, 246);
+  --color-foreground: rgb(241, 245, 249);
+  --color-muted: rgb(148, 163, 184);
+  --color-border: rgb(51, 65, 85);
+  --color-danger: rgb(239, 68, 68);
+  --color-warning: rgb(245, 158, 11);
+  --color-success: rgb(34, 197, 94);
+  --color-neon: rgb(195, 42, 255);
+  --color-rdark: rgb(44, 13, 42);
+  --color-rblue: rgb(97, 114, 197);
+  --color-rpink: rgb(237, 46, 165);
+  --color-rorng: rgb(250, 128, 87);
+  --color-ryllw: rgb(250, 208, 9)
 }
 
 @theme {
-    --font-display: "Oswald", "sans-serif";
-    --font-prsst: "PressStart", "system-ui";
-    --font-alagard: "Alagard", "system-ui";
-    --font-kiwi: "KiwiSoda", "system-ui";
-    --font-minecraft: "Minecraftia", "system-ui";
-    --font-pixellari: "Pixellari", "system-ui";
-    --font-retrogm: "RetroGaming", "system-ui";
-    --font-pixelopt: "PixelOpt", "system-ui";
-  }
+  --font-display: "Oswald", "sans-serif";
+  --font-prsst: "PressStart", "system-ui";
+  --font-alagard: "Alagard", "system-ui";
+  --font-kiwi: "KiwiSoda", "system-ui";
+  --font-minecraft: "Minecraftia", "system-ui";
+  --font-pixellari: "Pixellari", "system-ui";
+  --font-retrogm: "RetroGaming", "system-ui";
+  --font-pixelopt: "PixelOpt", "system-ui";
+}
 
 @theme {
-    --animate-wiggle: wiggle 1s ease-in-out infinite;
-    @keyframes wiggle {
-      0%,
-      100% {
-        transform: rotate(-3deg);
-      }
-      50% {
-        transform: rotate(3deg);
-      }
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+
+  @keyframes wiggle {
+
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+
+    50% {
+      transform: rotate(3deg);
     }
   }
+}
 
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-  }
-  
-  /* #svelte {
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* #svelte {
     min-height: 100%;
   } */
 

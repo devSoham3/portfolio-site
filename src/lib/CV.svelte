@@ -35,10 +35,12 @@
 						</p>
 						{#if Array.isArray(role.responsibilities)}
 							{#each role.responsibilities as resp}
-								<p class="text-sm font-pixellari font-thin mb-4 text-justify">- {resp}</p>
+								<p class="font-pixellari mb-4 text-justify text-sm font-thin">- {resp}</p>
 							{/each}
 						{:else}
-							<p class="text-sm font-pixellari font-thin mb-4 text-justify">{role.responsibilities}</p>
+							<p class="font-pixellari mb-4 text-justify text-sm font-thin">
+								{role.responsibilities}
+							</p>
 						{/if}
 					{/each}
 				{/each}
@@ -58,10 +60,12 @@
 						</p>
 						{#if Array.isArray(role.responsibilities)}
 							{#each role.responsibilities as resp}
-								<p class="text-sm font-pixellari font-thin mb-4 text-justify">- {resp}</p>
+								<p class="font-pixellari mb-4 text-justify text-sm font-thin">- {resp}</p>
 							{/each}
 						{:else}
-							<p class="text-sm font-pixellari font-thin mb-4 text-justify">{role.responsibilities}</p>
+							<p class="font-pixellari mb-4 text-justify text-sm font-thin">
+								{role.responsibilities}
+							</p>
 						{/if}
 					{/each}
 				{/each}
@@ -74,9 +78,13 @@
 					{#each cvData.education as edu}
 						<h4 class="font-retrogm">{edu.institution}</h4>
 						<p class="font-retrogm mb-4 text-2xl">{edu.degree}</p>
-						<p class="font-pixelopt mb-4 text-justify">{edu.duration}, GPA: <span class="font-prsst">{edu.gpa}</span></p>
+						<p class="font-pixelopt mb-4 text-justify">
+							{edu.duration}, GPA: <span class="font-prsst">{edu.gpa}</span>
+						</p>
 						<!-- <p class="font-pixelopt mb-4 text-justify"></p> -->
-						<p class="text-sm font-pixellari font-thin mb-4 text-justify">Coursework: {edu.coursework.join(', ')}</p>
+						<p class="font-pixellari mb-4 text-justify text-sm font-thin">
+							Coursework: {edu.coursework.join(', ')}
+						</p>
 					{/each}
 				</div>
 			</div>
