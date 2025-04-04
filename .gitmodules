@@ -1,0 +1,3 @@
+[submodule "content"]
+	path = content
+	url = git@github.com:devSoham3/portfolio-content.git
