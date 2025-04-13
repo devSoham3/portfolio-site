@@ -52,6 +52,12 @@
 						>Curriculum Vitae</button
 					>
 				</li>
+				<!-- <li>|</li>
+				<li>
+					<button class="font-retrogm hover:text-rblue"
+						>Blog</button
+					>
+				</li> -->
 			</ul>
 		</nav>
 
