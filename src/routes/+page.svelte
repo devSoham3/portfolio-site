@@ -21,47 +21,32 @@
 	<div class="text-foreground container mx-auto max-w-5xl px-4">
 		<nav class="bg-surface text-foreground sticky top-0 z-10 mb-8 shadow-sm">
 			<ul class="flex justify-end space-x-6 py-4">
-				<!-- basic links -->
-				<!-- <li><a href="#about" class="font-retrogm hover:text-rblue">About</a></li>
-                <li>|</li>
-                <li><a href="#highlights" class="font-retrogm hover:text-rblue">Highlights</a></li>
-                <li>|</li>
-                <li><a href="#projects" class="font-retrogm hover:text-rblue">Projects</a></li> -->
-
-				<!-- transistioned -->
 				<li>
-					<button on:click={() => navigateTo('about')} class="font-retrogm hover:text-rblue"
-						>About</button
-					>
+					<button on:click={() => navigateTo('about')} class="font-retrogm hover:text-rblue">
+						About
+					</button>
 				</li>
 				<li>|</li>
 				<li>
-					<button on:click={() => navigateTo('highlights')} class="font-retrogm hover:text-rblue"
-						>Highlights</button
-					>
+					<button on:click={() => navigateTo('highlights')} class="font-retrogm hover:text-rblue">
+						Highlights
+					</button>
 				</li>
 				<li>|</li>
 				<li>
-					<button on:click={() => navigateTo('projects')} class="font-retrogm hover:text-rblue"
-						>Projects</button
-					>
+					<button on:click={() => navigateTo('projects')} class="font-retrogm hover:text-rblue">
+						Projects
+					</button>
 				</li>
 				<li>|</li>
 				<li>
-					<button on:click={() => navigateTo('cv')} class="font-retrogm hover:text-rblue"
-						>Curriculum Vitae</button
-					>
+					<button on:click={() => navigateTo('cv')} class="font-retrogm hover:text-rblue">
+						Curriculum Vitae
+					</button>
 				</li>
-				<!-- <li>|</li>
-				<li>
-					<button class="font-retrogm hover:text-rblue"
-						>Blog</button
-					>
-				</li> -->
 			</ul>
 		</nav>
 
-		<!-- Use switch cases instead? -->
 		{#if currentSection === 'about'}
 			<div in:slide out:slide>
 				<About />
@@ -80,6 +65,32 @@
 			</div>
 		{/if}
 	</div>
+
+	<!-- Footer -->
+	<footer class="bg-surface text-foreground mt-8 py-4 sticky bottom-0">
+		<div class="container mx-auto max-w-5xl px-4 text-center">
+			<p class="font-prsst">Contact Me:</p>
+			<ul class="mt-2 flex justify-center space-x-6">
+				<li>
+					<a href="mailto:devsoham3@gmail.com" class="hover:text-rblue font-retrogm">
+						devsoham3@gmail.com
+					</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="https://linkedin.com/in/devsoham3" target="_blank" class="hover:text-rblue font-retrogm">
+						LinkedIn
+					</a>
+				</li>
+				<li>|</li>
+				<li>
+					<a href="https://github.com/devSoham3" target="_blank" class="hover:text-rblue font-retrogm">
+						GitHub	
+					</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
 </div>
 
 <style></style>
