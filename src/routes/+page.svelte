@@ -69,7 +69,7 @@
 	<!-- Footer -->
 	<footer class="bg-surface text-foreground mt-8 py-4 sticky bottom-0">
 		<div class="container mx-auto max-w-5xl px-4 text-center">
-			<p class="font-prsst">Contact Me:</p>
+			<p class="font-prsst text-ryllw">Contact Me:</p>
 			<ul class="mt-2 flex justify-center space-x-6">
 				<li>
 					<a href="mailto:devsoham3@gmail.com" class="hover:text-rblue font-retrogm">
