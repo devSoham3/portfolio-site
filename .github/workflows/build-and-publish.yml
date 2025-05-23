@@ -43,5 +43,5 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/portfolio-site:latest
-            ghcr.io/${{ github.repository_owner }}/portfolio-site:${{ github.sha }}
+            ghcr.io/devsoham3/portfolio-site:latest
+            ghcr.io/devsoham3/portfolio-site:${{ github.sha }}
