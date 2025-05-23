@@ -1,6 +1,5 @@
 name: Build & Publish Portfolio Image
 
-# trigger on pushes to main (or whichever branch you use)
 on:
   push:
     branches:
@@ -19,10 +18,7 @@ jobs:
       - name: Checkout repository (with submodules)
         uses: actions/checkout@v3
         with:
-          # clone your private submodule too
           submodules: recursive
-          # if your submodule lives in a different org/repo, create a PAT with repo access,
-          # store as SUBMODULE_TOKEN, and use it here instead of GITHUB_TOKEN:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up QEMU (for multi-arch, optional)
@@ -44,7 +40,6 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          # tag your image
           tags: |
             ghcr.io/${{ github.repository_owner }}/portfolio-site:latest
             ghcr.io/${{ github.repository_owner }}/portfolio-site:${{ github.sha }}
