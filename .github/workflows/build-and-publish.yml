@@ -15,11 +15,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository (with submodules)
+      - name: Checkout repo + submodules
         uses: actions/checkout@v3
         with:
+          # disable persisting the default GITHUB_TOKEN so we can swap in the PAT
+          persist-credentials: false
+          token: ${{ secrets.SUBMODULE_TOKEN }}
           submodules: recursive
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up QEMU (for multi-arch, optional)
         uses: docker/setup-qemu-action@v3
