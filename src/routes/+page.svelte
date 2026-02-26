@@ -55,12 +55,22 @@
 	}
 
 	// Check if user has scrolled to bottom
+	// Uses hysteresis (different expand/collapse thresholds) to prevent a feedback
+	// loop on mobile: expanded footer increases scrollHeight, which would immediately
+	// trigger a collapse, which shrinks scrollHeight, which triggers an expand, etc.
 	function checkScroll() {
 		const scrollTop = window.scrollY || document.documentElement.scrollTop;
 		const scrollHeight = document.documentElement.scrollHeight;
 		const clientHeight = document.documentElement.clientHeight;
-		// Consider "at bottom" when within 100px of the bottom
-		isFooterExpanded = scrollTop + clientHeight >= scrollHeight - 100;
+		const distanceFromBottom = scrollHeight - clientHeight - scrollTop;
+
+		if (!isFooterExpanded && distanceFromBottom <= 50) {
+			// Expand only when very close to the bottom
+			isFooterExpanded = true;
+		} else if (isFooterExpanded && distanceFromBottom > 200) {
+			// Collapse only when significantly scrolled away from the bottom
+			isFooterExpanded = false;
+		}
 	}
 
 	// Loading messages for each section
