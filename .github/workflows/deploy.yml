@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.SUBMODULE_TOKEN }}
 
       - name: Copy content into static/data
         run: cp content/pages/*.json static/data/
