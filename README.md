@@ -1,53 +1,45 @@
 # Portfolio Website
 
-This repository contains the source code for my personal portfolio website. The website showcases my skills, projects, and experiences, serving as a platform to highlight my professional journey. It is also a personal project that I want to develop to showcase my technical and creative skills.
+Personal portfolio site for Soham Deo — [sohamdeo.com](https://sohamdeo.com)
+
+Showcases skills, projects, and experience. Also a personal project to develop and iterate on technical and creative skills.
 
 ## Features
 
-- Interactive, tab-based navigation for About, Highlights, Projects, and Curriculum Vitae sections
-- Responsive design with custom pixel and retro fonts
-- Dynamic content loading from JSON files (skills, projects, CV, about)
-- Animated transitions between sections using Svelte transitions
-- Custom theming with Tailwind CSS and CSS variables
-- Dockerized for easy deployment
-- CI/CD pipeline with GitHub Actions and Docker image publishing
+- Interactive tab-based navigation (About, Highlights, Projects, CV)
+- Cyberpunk/retro design with custom pixel fonts
+- Dynamic content loaded from JSON files (submodule)
+- Animated transitions via Svelte
+- Responsive layout with Tailwind CSS v4
 
-## Technologies Used
+## Tech Stack
 
-- [SvelteKit](https://kit.svelte.dev/) for frontend framework
-- [Svelte](https://svelte.dev/) for UI components
-- [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
-- [Docker](https://www.docker.com/) for containerization
-- [GitHub Actions](https://github.com/features/actions) for CI/CD
-- [Node.js](https://nodejs.org/) for server runtime
-- Custom fonts and theming
+- [SvelteKit 2](https://kit.svelte.dev/) + [Svelte 5](https://svelte.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Cloudflare Workers](https://workers.cloudflare.com/) — static asset hosting
+- [GitHub Actions](https://github.com/features/actions) — CI/CD
+
+See [HOSTING.md](./HOSTING.md) for full infrastructure and deployment details.
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18+ recommended)
-- [npm](https://www.npmjs.com/)
-- [Docker](https://www.docker.com/) (optional, for containerized deployment)
+- Node.js v20+
+- npm
 
 ### Development
 
-1. **Clone the repository:**
-   ```sh
-   git clone --recurse-submodules https://github.com/devSoham3/portfolio-site.git
-   cd portfolio-site
-   ```
+```sh
+git clone --recurse-submodules https://github.com/devSoham3/portfolio-site.git
+cd portfolio-site
+npm install
+npm run dev
+```
 
-2. **Install dependencies:**
-   ```sh
-   npm install
-   ```
+The site will be available at `http://localhost:5173/`.
 
-3. **Run the development server:**
-   ```sh
-   npm run dev
-   ```
-   The site will be available at `http://localhost:5173/` by default.
+> The `--recurse-submodules` flag is required — content JSON files live in the private `portfolio-content` submodule. You'll need read access to that repo.
 
 ### Building for Production
 
@@ -55,21 +47,18 @@ This repository contains the source code for my personal portfolio website. The 
 npm run build
 ```
 
-### Running with Docker
-
-```sh
-docker build -t portfolio-site .
-docker run -p 3000:3000 portfolio-site
-```
+Output goes to `build/`. Deploy with `npx wrangler deploy` (requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`).
 
 ## Project Structure
 
-- `src/` – Svelte components, routes, and styles
-- `content/pages/` – JSON files for dynamic content (about, highlights, projects, cv)
-- `static/` – Static assets (images, fonts, favicon)
-- `Dockerfile` – Docker build instructions
-- `.github/workflows/` – GitHub Actions CI/CD configuration
+```
+src/            Svelte components, routes, styles
+content/        Git submodule → portfolio-content (JSON data files)
+static/         Static assets (images, fonts, favicon)
+static/data/    Symlink → content/pages/ (JSON served as static assets)
+wrangler.toml   Cloudflare Workers deploy config
+```
 
 ## Contact
 
-For any inquiries, you can reach me at [devsoham3@gmail.com](mailto:devsoham3@gmail.com) or [deoSoham@mail.rit.edu](mailto:deoSoham@mail.rit.edu).
+[devsoham3@gmail.com](mailto:devsoham3@gmail.com)
