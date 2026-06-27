@@ -15,9 +15,6 @@ jobs:
           submodules: true
           token: ${{ secrets.SUBMODULE_TOKEN }}
 
-      - name: Copy content into static/data
-        run: cp content/pages/*.json static/data/
-
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
