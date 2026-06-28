@@ -24,3 +24,7 @@ vite.config.ts.timestamp-*
 
 # Private data
 static/data/*.json
+
+# Local tooling
+.claude/
+.mcp.json

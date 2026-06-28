@@ -5,6 +5,9 @@
 	import Highlights from '$lib/Highlights.svelte';
 	import CV from '$lib/CV.svelte';
 	import Projects from '$lib/Projects.svelte';
+	import ThemeToggle from '$lib/ThemeToggle.svelte';
+	import { theme } from '$lib/stores/theme.js';
+	import BlueprintShell from '$lib/blueprint/BlueprintShell.svelte';
 
 	// use a current section to display only selected tab
 	let currentSection = 'about';
@@ -123,6 +126,10 @@
 	});
 </script>
 
+{#if $theme === 'blueprint'}
+	<BlueprintShell />
+{:else}
+<!-- ============ RETRO THEME LAYOUT ============ -->
 <!-- Scanlines Overlay -->
 <div class="scanlines"></div>
 
@@ -169,7 +176,7 @@
 			class="container mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4 md:px-10"
 		>
 			<!-- Nav Links - Terminal icon and logo name move with active section -->
-			<ul class="hidden items-center gap-4 md:flex lg:gap-6">
+			<ul class="hidden items-center gap-4 lg:flex lg:gap-6">
 				<li>
 					<button
 						on:click={() => navigateTo('about')}
@@ -236,8 +243,8 @@
 				</li>
 			</ul>
 
-			<!-- Mobile Menu - Shows terminal icon + logo + section name -->
-			<div class="flex items-center gap-3 md:hidden">
+			<!-- Compact Menu (below lg) - section dropdown + toggle + contact -->
+			<div class="flex items-center gap-3 lg:hidden">
 				<div
 					class="text-primary border-primary shadow-neon flex items-center gap-2 rounded-lg border px-3 py-2"
 				>
@@ -259,15 +266,26 @@
 						<option value="cv" class="bg-background text-foreground">CV</option>
 					</select>
 				</div>
+				<ThemeToggle />
+				<a
+					href="mailto:devsoham3@gmail.com"
+					title="Contact me"
+					class="bg-primary text-background hover:bg-foreground hover:shadow-neon flex h-10 w-10 items-center justify-center rounded transition-all"
+				>
+					<span class="material-symbols-outlined text-lg">mail</span>
+				</a>
 			</div>
 
-			<!-- Contact Button (Desktop) -->
-			<a
-				href="mailto:devsoham3@gmail.com"
-				class="bg-primary text-background hover:bg-foreground hover:shadow-neon font-prsst hidden h-10 items-center justify-center rounded px-6 text-sm tracking-widest transition-all md:flex"
-			>
-				CONTACT_ME
-			</a>
+			<!-- Desktop right side (lg+): theme toggle + contact -->
+			<div class="hidden items-center gap-3 lg:flex">
+				<ThemeToggle />
+				<a
+					href="mailto:devsoham3@gmail.com"
+					class="bg-primary text-background hover:bg-foreground hover:shadow-neon font-prsst flex h-10 items-center justify-center rounded px-6 text-sm tracking-widest transition-all"
+				>
+					CONTACT_ME
+				</a>
+			</div>
 		</div>
 	</nav>
 
@@ -409,6 +427,7 @@
 		{/if}
 	</footer>
 </div>
+{/if}
 
 <style>
 	/* Animated loading dots */
