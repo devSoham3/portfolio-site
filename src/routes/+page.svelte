@@ -251,10 +251,10 @@
 					<span class="border-primary flex size-5 items-center justify-center rounded border">
 						<span class="material-symbols-outlined text-[14px]">terminal</span>
 					</span>
-					<span class="font-retrogm text-foreground text-xs tracking-widest uppercase"
+					<span class="font-retrogm text-foreground hidden text-xs tracking-widest uppercase sm:inline"
 						>Soham_Deo</span
 					>
-					<span class="text-muted font-retrogm text-xs">.</span>
+					<span class="text-muted font-retrogm hidden text-xs sm:inline">.</span>
 					<select
 						class="text-primary font-retrogm cursor-pointer bg-transparent text-xs tracking-widest uppercase outline-none"
 						on:change={(e) => navigateTo(e.target.value)}

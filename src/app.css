@@ -527,9 +527,15 @@ body {
   flex-shrink: 0;
 }
 
-/* Technical tables (BOM / revision history) */
+/* Technical tables (BOM / revision history) — scrolls horizontally within its
+   own box on narrow screens instead of blowing out the page width. */
+.bp-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 .bp-table {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
   font-size: 12px;
 }
@@ -607,20 +613,20 @@ body {
   position: relative;
   z-index: 1;
 }
-/* Selected tab: hatched fill with the name in white + a black outline so it
-   stays legible wherever the hatch lines fall. */
+/* Selected tab: hatched fill behind solid black text — plain ink, like
+   everywhere else in the theme, rather than a white-fill/black-outline. */
 .bp-tab[data-active="true"] {
   background: var(--bp-paper);
-  color: var(--bp-paper);
-  font-weight: 800;
+  color: var(--bp-ink-strong);
+  font-weight: 900;
 }
 .bp-tab[data-active="true"] .bp-tab-label {
-  /* white fill with a crisp black outline (built from layered shadows) so the
-     name reads cleanly wherever the hatch lines fall behind it */
+  /* Faux-bold: a same-colour shadow thickens the strokes so the label reads
+     clearly over the hatch, without flipping to a white fill. */
+  font-size: 13px;
   text-shadow:
-    -1px -1px 0 var(--bp-ink), 0 -1px 0 var(--bp-ink), 1px -1px 0 var(--bp-ink),
-    -1px 0 0 var(--bp-ink), 1px 0 0 var(--bp-ink),
-    -1px 1px 0 var(--bp-ink), 0 1px 0 var(--bp-ink), 1px 1px 0 var(--bp-ink);
+    -0.4px -0.4px 0 var(--bp-ink-strong), 0.4px -0.4px 0 var(--bp-ink-strong),
+    -0.4px 0.4px 0 var(--bp-ink-strong), 0.4px 0.4px 0 var(--bp-ink-strong);
 }
 .bp-tab[data-active="true"]::before {
   content: "";
@@ -660,6 +666,32 @@ body {
   font-size: 12px;
   font-weight: 700;
   color: var(--bp-ink-strong);
+}
+
+/* Contact links styled as title-block-style boxes, fixed to the bottom
+   centre of the viewport so they stay visible and easy to hit instead of
+   being small inline text that scrolls out of view. */
+.bp-contact-fixed {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 40;
+  box-shadow: 0 6px 18px rgba(17, 17, 17, 0.18);
+}
+.bp-contact-fixed .link-cell {
+  border: 1px solid var(--bp-line);
+  padding: 7px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bp-ink-strong);
+  transition: background 0.12s, color 0.12s;
+}
+.bp-contact-fixed .link-cell:hover {
+  background: var(--bp-ink);
+  color: var(--bp-paper);
 }
 
 /* Viewport frame for the profile photo (orthographic view box) */
