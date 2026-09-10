@@ -33,13 +33,12 @@
 	const sheetNo = { about: '01', highlights: '02', projects: '03', cv: '04' };
 	const today = new Date().toISOString().slice(0, 10);
 
-	// Zone markers along the margins
-	const cols = [1, 2, 3, 4, 5, 6, 7, 8];
+	// Zone markers along the side margins
 	const rows = ['A', 'B', 'C', 'D'];
 </script>
 
-<div class="bp-root bp-paper-bg min-h-screen w-full">
-	<div class="mx-auto max-w-[1320px] px-3 py-4 md:px-6 md:py-6">
+<div class="bp-root bp-paper-bg min-h-screen w-full pb-16">
+	<div class="mx-auto max-w-[1200px] px-6 py-4 md:px-10 md:py-6">
 		<div class="bp-sheet-wrap">
 			<!-- ===== HEADER BOX — common, draws once on first load ===== -->
 			<div class="bp-hdr bp-bigbox" data-order={hdrOrder}>
@@ -49,61 +48,47 @@
 				<span class="bp-edge e-right" aria-hidden="true"></span>
 
 				<div class="bp-hdr-in" use:typewriter={{ done: 1120, duration: 1150 }}>
-					<!-- Top margin ruler: zone numbers + retro toggle -->
+					<!-- Identity + retro toggle -->
 					<div class="flex items-stretch border-b-2" style="border-color: var(--bp-ink);">
-						<div class="flex flex-1 items-center">
-							{#each cols as c}
-								<div
-									class="bp-zone flex h-8 flex-1 items-center justify-center border-r"
-									style="border-color: var(--bp-line-soft);"
-								>
-									{c}
-								</div>
-							{/each}
-						</div>
-						<a
-							href="mailto:devsoham3@gmail.com"
-							class="bp-tab flex items-center gap-1.5 border-y-0 border-r-0 border-l-2"
-							style="border-color: var(--bp-ink);"
-							title="Contact me"
+						<div
+							class="flex items-center gap-1.5 border-r px-2 sm:gap-2 sm:px-3"
+							style="border-color: var(--bp-line-soft);"
 						>
-							<span class="material-symbols-outlined text-[16px]">mail</span> CONTACT
-						</a>
+							<span class="bp-balloon" style="width:26px;height:26px;font-size:11px;">SD</span>
+							<span
+								class="bp-title hidden text-[17px] whitespace-nowrap min-[420px]:inline"
+								style="color: var(--bp-ink-strong);">SOHAM DEO</span
+							>
+						</div>
+						<div class="flex-1"></div>
 						<button
-							on:click={theme.toggle}
-							class="bp-retro-toggle tw-skip flex items-center gap-1.5"
+							on:click={(e) => theme.toggle(e)}
+							class="bp-retro-toggle tw-skip flex items-center gap-1.5 border-y-0 border-l-2"
+							style="border-color: var(--bp-ink);"
 							title="Switch to retro theme"
 						>
 							<span class="material-symbols-outlined text-[16px]">videogame_asset</span> RETRO MODE
 						</button>
+						<a
+							href="mailto:devsoham3@gmail.com"
+							class="bp-tab flex items-center gap-1.5 border-y-0 border-r-0"
+							title="Contact me"
+						>
+							<span class="material-symbols-outlined text-[16px]">mail</span> CONTACT
+						</a>
 					</div>
 
-					<!-- Identity bar + view selector -->
-					<div
-						class="flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
-					>
-						<div class="flex items-center gap-3">
-							<span class="bp-balloon" style="width:30px;height:30px;">SD</span>
-							<div>
-								<p class="bp-title text-sm leading-tight" style="color: var(--bp-ink-strong);">
-									Soham Deo — Portfolio
-								</p>
-								<p class="text-[10px]" style="color: var(--bp-ink);">
-									DRAWING No. SD-2026 · TECHNICAL DATA SHEET
-								</p>
-							</div>
-						</div>
-						<div class="flex flex-wrap gap-2">
-							{#each views as view}
-								<button
-									class="bp-tab"
-									data-active={currentSection === view.id}
-									on:click={() => selectView(view.id)}
-								>
-									<span class="bp-tab-label">{view.no} · {view.label}</span>
-								</button>
-							{/each}
-						</div>
+					<!-- View selector -->
+					<div class="flex flex-wrap gap-2 px-4 py-3">
+						{#each views as view}
+							<button
+								class="bp-tab"
+								data-active={currentSection === view.id}
+								on:click={() => selectView(view.id)}
+							>
+								<span class="bp-tab-label">{view.no} · {view.label}</span>
+							</button>
+						{/each}
 					</div>
 				</div>
 			</div>
@@ -128,7 +113,7 @@
 								{/each}
 							</div>
 
-							<main class="bp-content min-h-[60vh] flex-1 px-5 py-8 md:px-10 md:py-10">
+							<main class="bp-content min-h-[60vh] min-w-0 flex-1 px-5 py-8 md:px-10 md:py-10">
 								{#if currentSection === 'about'}
 									<BpAbout />
 								{:else if currentSection === 'highlights'}
@@ -192,26 +177,20 @@
 			{/key}
 		</div>
 
-		<!-- Contact strip under the sheet -->
+		<!-- Copyright strip under the sheet -->
 		<div
-			class="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px]"
+			class="mt-4 text-[11px]"
 			style="color: var(--bp-ink);"
 			use:typewriter={{ done: 1900, duration: 800 }}
 		>
 			<span>© {new Date().getFullYear()} SOHAM DEO · ALL DIMENSIONS IN CONFIDENCE</span>
-			<div class="flex gap-4">
-				<a href="mailto:devsoham3@gmail.com" class="underline-offset-2 hover:underline">EMAIL</a>
-				<a
-					href="https://linkedin.com/in/devsoham3"
-					target="_blank"
-					class="underline-offset-2 hover:underline">LINKEDIN</a
-				>
-				<a
-					href="https://github.com/devSoham3"
-					target="_blank"
-					class="underline-offset-2 hover:underline">GITHUB</a
-				>
-			</div>
 		</div>
+	</div>
+
+	<!-- Contact links: fixed, bottom-centre, always visible -->
+	<div class="bp-titleblock bp-contact-fixed flex" use:typewriter={{ done: 1900, duration: 800 }}>
+		<a href="mailto:devsoham3@gmail.com" class="cell link-cell">EMAIL</a>
+		<a href="https://linkedin.com/in/devsoham3" target="_blank" class="cell link-cell">LINKEDIN</a>
+		<a href="https://github.com/devSoham3" target="_blank" class="cell link-cell">GITHUB</a>
 	</div>
 </div>

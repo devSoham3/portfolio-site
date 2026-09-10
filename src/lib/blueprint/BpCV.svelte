@@ -64,6 +64,7 @@
 
 		<!-- Revision table -->
 		<BpBox i={0} cls="mb-10 p-1">
+			<div class="bp-table-scroll">
 			<table class="bp-table">
 				<thead>
 					<tr>
@@ -91,6 +92,7 @@
 					{/each}
 				</tbody>
 			</table>
+			</div>
 		</BpBox>
 
 		<!-- Detail panels -->

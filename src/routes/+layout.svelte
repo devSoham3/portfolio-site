@@ -1,6 +1,8 @@
 <script>
 	import '../app.css';
 	import { browser } from '$app/environment';
+	import ThemeTransition from '$lib/ThemeTransition.svelte';
+	import CrtBootOn from '$lib/CrtBootOn.svelte';
 
 	let { children } = $props();
 
@@ -12,3 +14,5 @@
 </script>
 
 {@render children()}
+<ThemeTransition />
+<CrtBootOn />
