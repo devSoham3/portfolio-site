@@ -36,6 +36,7 @@
 
 		<!-- BOM table -->
 		<BpBox i={0} cls="p-1">
+			<div class="bp-table-scroll">
 			<table class="bp-table">
 				<thead>
 					<tr>
@@ -66,6 +67,7 @@
 					{/each}
 				</tbody>
 			</table>
+			</div>
 		</BpBox>
 
 		<p
