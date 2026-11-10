@@ -37,9 +37,11 @@ The `content/` directory in `portfolio-site` is a Git submodule pointing to `por
 ### Updating content (JSON files)
 1. Edit files in `portfolio-content/pages/` (`about.json`, `highlights.json`, `projects.json`, `cv.json`, `phrases.json`)
 2. Push to `portfolio-content` main
-3. `trigger-deploy.yml` fires → calls `workflow_dispatch` on `portfolio-site` via GitHub API (using `SUBMODULE_TOKEN`)
-4. `deploy.yml` fires on `portfolio-site` → checks out repo + submodule → `npm ci` → `npm run build` → `wrangler deploy`
+3. In `portfolio-site`, bump the submodule and push to main: `git submodule update --remote content`, then commit `content`. **This step is required.** `deploy.yml` builds the submodule commit pinned in `portfolio-site`, so a content push on its own redeploys the old content.
+4. `deploy.yml` fires on `portfolio-site` → checks out repo + pinned submodule → `npm ci` → `npm run build` → `wrangler deploy`
 5. Site is live on Cloudflare within ~1–2 minutes
+
+`trigger-deploy.yml` also fires on every content push and calls `workflow_dispatch` on `portfolio-site` via GitHub API (using `SUBMODULE_TOKEN`), but that run still builds the pinned commit.
 
 ### Updating frontend code
 1. Edit SvelteKit source in `portfolio-site/src/`

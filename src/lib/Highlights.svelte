@@ -19,6 +19,20 @@
 			hoverBorder: 'hover:border-secondary',
 			textColor: 'text-secondary'
 		},
+		GenAI: {
+			borderColor: 'border-neon-green/50',
+			labelBg: 'text-neon-green border-neon-green/30',
+			shadow: 'shadow-neon-green',
+			hoverBorder: 'hover:border-neon-green',
+			textColor: 'text-neon-green'
+		},
+		CAD: {
+			borderColor: 'border-accent/50',
+			labelBg: 'text-accent border-accent/30',
+			shadow: 'shadow-neon-amber',
+			hoverBorder: 'hover:border-accent',
+			textColor: 'text-accent'
+		},
 		Tools: {
 			borderColor: 'border-accent/50',
 			labelBg: 'text-accent border-accent/30',

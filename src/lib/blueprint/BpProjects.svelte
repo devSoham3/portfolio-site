@@ -24,9 +24,7 @@
 		<div class="bp-sheet-head" use:typewriter={{ done: 1260, duration: 700 }}>
 			<div>
 				<h1 class="bp-title text-2xl md:text-3xl">Projects</h1>
-				<p class="mt-1 text-xs" style="color: var(--bp-ink);">
-					SHEET 03 — PROJECT DETAILS
-				</p>
+				<p class="mt-1 text-xs" style="color: var(--bp-ink);">SHEET 03 — PROJECT DETAILS</p>
 			</div>
 			<p class="hidden text-right text-[10px] md:block" style="color: var(--bp-ink);">
 				DETAILS: {projectData.projects.length}
@@ -42,7 +40,21 @@
 						<h4 class="bp-title text-base leading-snug" style="color: var(--bp-ink-strong);">
 							{project.name}
 						</h4>
+						{#if project.featured}
+							<span class="bp-chip ml-auto" use:drawEdges>FEATURED</span>
+						{/if}
 					</div>
+
+					<!-- Links -->
+					{#if project.links?.length}
+						<div class="mb-4 flex flex-wrap gap-2">
+							{#each project.links as link}
+								<a href={link.url} target="_blank" rel="noopener noreferrer" class="bp-tab">
+									{link.label} ↗
+								</a>
+							{/each}
+						</div>
+					{/if}
 
 					<!-- Description -->
 					{#each project.description as desc}

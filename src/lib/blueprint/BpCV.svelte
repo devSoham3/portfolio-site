@@ -65,33 +65,33 @@
 		<!-- Revision table -->
 		<BpBox i={0} cls="mb-10 p-1">
 			<div class="bp-table-scroll">
-			<table class="bp-table">
-				<thead>
-					<tr>
-						<th style="width: 48px;">Rev</th>
-						<th style="width: 88px;">Type</th>
-						<th style="width: 200px;">Date</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					{#each revisions as rev, i}
+				<table class="bp-table">
+					<thead>
 						<tr>
-							<td style="font-weight: 700; color: var(--bp-ink);">
-								{String.fromCharCode(65 + (revisions.length - 1 - i))}
-							</td>
-							<td>
-								<span class="bp-chip" style="font-size: 9px;" use:drawEdges>{rev.kind}</span>
-							</td>
-							<td style="white-space: nowrap;">{rev.when}</td>
-							<td>
-								<span style="font-weight: 700;">{rev.what}</span>
-								<span style="color: var(--bp-ink);"> — {rev.who}</span>
-							</td>
+							<th style="width: 48px;">Rev</th>
+							<th style="width: 88px;">Type</th>
+							<th style="width: 200px;">Date</th>
+							<th>Description</th>
 						</tr>
-					{/each}
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						{#each revisions as rev, i}
+							<tr>
+								<td style="font-weight: 700; color: var(--bp-ink);">
+									{String.fromCharCode(65 + (revisions.length - 1 - i))}
+								</td>
+								<td>
+									<span class="bp-chip" style="font-size: 9px;" use:drawEdges>{rev.kind}</span>
+								</td>
+								<td style="white-space: nowrap;">{rev.when}</td>
+								<td>
+									<span style="font-weight: 700;">{rev.what}</span>
+									<span style="color: var(--bp-ink);"> — {rev.who}</span>
+								</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
 			</div>
 		</BpBox>
 
@@ -107,7 +107,8 @@
 									{role.role} — {org.organization}
 								</h4>
 								<p class="mb-2 text-[11px]" style="color: var(--bp-red);">
-									{role.duration}{#if org.location} · {org.location}{/if}
+									{role.duration}{#if org.location}
+										· {org.location}{/if}
 								</p>
 								<ul class="space-y-1.5">
 									{#each asList(role.responsibilities) as resp}
@@ -161,9 +162,32 @@
 				</div>
 			</BpBox>
 
+			<!-- Publications -->
+			{#if cvData.publications?.length}
+				<BpBox label="Publications" i={4} cls="p-6 pt-7">
+					<ul class="space-y-5">
+						{#each cvData.publications as pub}
+							<li class="border-l-2 pl-4" style="border-color: var(--bp-ink);">
+								<a
+									href={pub.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="bp-title text-sm underline"
+									style="color: var(--bp-ink-strong);"
+								>
+									{pub.title}
+								</a>
+								<p class="mt-1 text-[12px]" style="color: var(--bp-graphite);">{pub.authors}</p>
+								<p class="text-[11px]" style="color: var(--bp-red);">{pub.venue} · {pub.year}</p>
+							</li>
+						{/each}
+					</ul>
+				</BpBox>
+			{/if}
+
 			<!-- Others -->
 			{#if cvData.experience.others?.length}
-				<BpBox label="Other" i={4} cls="p-6 pt-7">
+				<BpBox label="Other" i={5} cls="p-6 pt-7">
 					<div class="space-y-6">
 						{#each cvData.experience.others as org}
 							{#each org.roles as role}

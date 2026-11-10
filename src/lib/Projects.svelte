@@ -71,11 +71,28 @@
 					<div
 						class="bg-surface absolute -top-3 left-4 px-2 text-{color} font-retrogm border tracking-widest border-{color}/30 shadow-neon text-md rounded"
 					>
-						PROJECT_{String(idx + 1).padStart(2, '0')}
+						PROJECT_{String(idx + 1).padStart(2, '0')}{#if project.featured}{' // FEATURED'}{/if}
 					</div>
 
 					<!-- Project Name -->
 					<h4 class="font-retrogm text-secondary mt-1 mb-3 text-lg md:text-xl">{project.name}</h4>
+
+					<!-- Links -->
+					{#if project.links?.length}
+						<div class="mb-4 flex flex-wrap gap-2">
+							{#each project.links as link}
+								<a
+									href={link.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="border-primary text-primary hover:bg-primary hover:text-background font-retrogm inline-flex items-center gap-1 rounded border px-3 py-1 text-xs tracking-widest uppercase transition-all"
+								>
+									{link.label}
+									<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+								</a>
+							{/each}
+						</div>
+					{/if}
 
 					<!-- Description -->
 					<div class="mb-4 space-y-2">

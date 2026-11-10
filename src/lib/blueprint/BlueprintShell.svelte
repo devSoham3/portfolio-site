@@ -70,7 +70,7 @@
 							<span class="material-symbols-outlined text-[16px]">videogame_asset</span> RETRO MODE
 						</button>
 						<a
-							href="mailto:devsoham3@gmail.com"
+							href="mailto:sohamdeo@pm.me"
 							class="bp-tab flex items-center gap-1.5 border-y-0 border-r-0"
 							title="Contact me"
 						>
@@ -189,7 +189,7 @@
 
 	<!-- Contact links: fixed, bottom-centre, always visible -->
 	<div class="bp-titleblock bp-contact-fixed flex" use:typewriter={{ done: 1900, duration: 800 }}>
-		<a href="mailto:devsoham3@gmail.com" class="cell link-cell">EMAIL</a>
+		<a href="mailto:sohamdeo@pm.me" class="cell link-cell">EMAIL</a>
 		<a href="https://linkedin.com/in/devsoham3" target="_blank" class="cell link-cell">LINKEDIN</a>
 		<a href="https://github.com/devSoham3" target="_blank" class="cell link-cell">GITHUB</a>
 	</div>

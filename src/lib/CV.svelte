@@ -66,7 +66,8 @@
 					{#each org.roles as role}
 						<div class="border-secondary border-l-2 pl-4">
 							<h4 class="font-retrogm text-lg md:text-xl">
-								<span class="text-secondary font-prsst">{role.role}</span>
+								<!-- Zero-width space lets a long "A/B" title wrap at the slash on phones -->
+								<span class="text-secondary font-prsst">{role.role.replaceAll('/', '/​')}</span>
 								<span class="text-muted"> @ </span>
 								<span class="text-foreground">{org.organization}</span>
 							</h4>
@@ -171,6 +172,38 @@
 				{/each}
 			</div>
 		</div>
+
+		<!-- Publications Section -->
+		{#if cvData.publications?.length}
+			<div
+				class="bg-surface border-neon-purple/50 shadow-neon-purple card-flicker relative mb-8 rounded-xl border p-6"
+				on:mouseenter={randomFlicker}
+				role="presentation"
+			>
+				<div
+					class="bg-surface text-neon-purple border-neon-purple/30 shadow-neon-purple font-retrogm text-md absolute -top-3 left-4 rounded border px-2 tracking-widest"
+				>
+					PUBLICATIONS
+				</div>
+
+				<ul class="mt-2 space-y-6">
+					{#each cvData.publications as pub}
+						<li class="border-neon-purple border-l-2 pl-4">
+							<a
+								href={pub.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="font-retrogm text-secondary hover:text-foreground text-lg underline transition-colors"
+							>
+								{pub.title}
+							</a>
+							<p class="font-pixellari text-muted text-md mt-1">{pub.authors}</p>
+							<p class="font-pixelopt text-accent text-sm">{pub.venue} • {pub.year}</p>
+						</li>
+					{/each}
+				</ul>
+			</div>
+		{/if}
 
 		<!-- Terminal Status -->
 		<div

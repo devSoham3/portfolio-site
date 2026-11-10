@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	let aboutData = null;
 	let error = null;
+	let featured = [];
 
 	// Neon colors for random flicker effect
 	const neonColors = [
@@ -24,6 +25,15 @@
 			aboutData = await res.json();
 		} catch (err) {
 			error = err;
+		}
+
+		// The profile still renders if the featured projects can't be loaded
+		try {
+			const res = await fetch('/data/projects.json');
+			const data = await res.json();
+			featured = data.projects.filter((project) => project.featured);
+		} catch (err) {
+			console.error('Failed to load featured projects:', err);
 		}
 	});
 </script>
@@ -84,8 +94,7 @@
 						Hey, I'm {aboutData.name.split(' ')[0]}!
 					</h2>
 					<h3 class="text-secondary font-mono text-base leading-relaxed font-semibold md:text-lg">
-						I am a software engineer with experience in databases, research in software quality, and
-						a passion for building reliable, data-driven systems.
+						{aboutData.headline}
 					</h3>
 					<div class="mt-6 space-y-4">
 						{#each aboutData.description as desc_para}
@@ -99,6 +108,45 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Featured Work -->
+		{#if featured.length}
+			<div
+				class="bg-surface border-secondary/50 shadow-neon-pink card-flicker relative mt-8 rounded-xl border p-6 md:p-8"
+				on:mouseenter={randomFlicker}
+				role="presentation"
+			>
+				<div
+					class="bg-surface text-secondary border-secondary/30 shadow-neon-pink font-retrogm text-md absolute -top-3 left-4 rounded border px-2 tracking-widest"
+				>
+					FEATURED_WORK
+				</div>
+
+				<div class="mt-2 grid grid-cols-1 gap-6 md:grid-cols-2">
+					{#each featured as project}
+						<div class="border-primary flex flex-col items-start gap-3 border-l-2 pl-4">
+							<h3 class="font-retrogm text-secondary text-lg md:text-xl">{project.name}</h3>
+							<p class="text-foreground font-pixelopt text-md leading-relaxed">
+								{project.description[0]}
+							</p>
+							<div class="mt-auto flex flex-wrap gap-2">
+								{#each project.links as link}
+									<a
+										href={link.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="border-primary text-primary hover:bg-primary hover:text-background font-retrogm inline-flex items-center gap-1 rounded border px-3 py-1 text-xs tracking-widest uppercase transition-all"
+									>
+										{link.label}
+										<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+									</a>
+								{/each}
+							</div>
+						</div>
+					{/each}
+				</div>
+			</div>
+		{/if}
 
 		<!-- Terminal Status -->
 		<div

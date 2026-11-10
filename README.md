@@ -61,4 +61,4 @@ wrangler.toml   Cloudflare Workers deploy config
 
 ## Contact
 
-[devsoham3@gmail.com](mailto:devsoham3@gmail.com)
+[sohamdeo@pm.me](mailto:sohamdeo@pm.me)

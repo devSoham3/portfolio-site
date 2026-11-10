@@ -268,7 +268,7 @@
 				</div>
 				<ThemeToggle />
 				<a
-					href="mailto:devsoham3@gmail.com"
+					href="mailto:sohamdeo@pm.me"
 					title="Contact me"
 					class="bg-primary text-background hover:bg-foreground hover:shadow-neon flex h-10 w-10 items-center justify-center rounded transition-all"
 				>
@@ -280,7 +280,7 @@
 			<div class="hidden items-center gap-3 lg:flex">
 				<ThemeToggle />
 				<a
-					href="mailto:devsoham3@gmail.com"
+					href="mailto:sohamdeo@pm.me"
 					class="bg-primary text-background hover:bg-foreground hover:shadow-neon font-prsst flex h-10 items-center justify-center rounded px-6 text-sm tracking-widest transition-all"
 				>
 					CONTACT_ME
@@ -358,7 +358,7 @@
 						<span class="material-symbols-outlined text-primary">wifi</span>
 						<span class="font-retrogm text-sm tracking-widest">CONNECTION_ESTABLISHED</span>
 					</div>
-					<p class="text-muted font-mono text-xs">SECURE_LINE: devsoham3@gmail.com</p>
+					<p class="text-muted font-mono text-xs">SECURE_LINE: sohamdeo@pm.me</p>
 				</div>
 				<div class="flex items-center gap-4">
 					<span class="text-secondary font-retrogm hidden text-sm tracking-wide md:block"
@@ -366,7 +366,7 @@
 					>
 					<div class="flex gap-3">
 						<a
-							href="mailto:devsoham3@gmail.com"
+							href="mailto:sohamdeo@pm.me"
 							class="border-primary hover:bg-primary text-primary hover:text-background shadow-neon flex items-center justify-center gap-2 rounded-lg border-2 bg-transparent px-4 py-2 transition-all duration-300"
 						>
 							<span class="material-symbols-outlined text-lg">mail</span>
@@ -400,7 +400,7 @@
 				</div>
 				<div class="flex items-center gap-2">
 					<a
-						href="mailto:devsoham3@gmail.com"
+						href="mailto:sohamdeo@pm.me"
 						class="text-primary hover:text-foreground flex items-center justify-center p-2 transition-colors"
 						title="Email"
 					>

@@ -5,6 +5,7 @@
 	import { drawEdges } from './drawEdges.js';
 	let aboutData = null;
 	let error = null;
+	let featured = [];
 
 	onMount(async () => {
 		try {
@@ -12,6 +13,15 @@
 			aboutData = await res.json();
 		} catch (err) {
 			error = err;
+		}
+
+		// The profile still renders if the featured projects can't be loaded
+		try {
+			const res = await fetch('/data/projects.json');
+			const data = await res.json();
+			featured = data.projects.filter((project) => project.featured);
+		} catch (err) {
+			console.error('Failed to load featured projects:', err);
 		}
 	});
 </script>
@@ -42,12 +52,16 @@
 				<!-- Horizontal dimension under the photo -->
 				<div class="mt-3 flex items-center gap-2">
 					<div class="bp-dim flex-1"></div>
-					<span class="bp-dim-value" use:typewriter={{ done: 1350, duration: 300 }}>FRONT ELEV.</span>
+					<span class="bp-dim-value" use:typewriter={{ done: 1350, duration: 300 }}
+						>FRONT ELEV.</span
+					>
 					<div class="bp-dim flex-1"></div>
 				</div>
 				<!-- Location tag + material hatch swatch -->
 				<div class="mt-4 flex items-center gap-2">
-					<span class="bp-chip" use:drawEdges use:typewriter={{ done: 1450, duration: 250 }}>DATUM</span>
+					<span class="bp-chip" use:drawEdges use:typewriter={{ done: 1450, duration: 250 }}
+						>DATUM</span
+					>
 					<span
 						class="text-xs"
 						style="color: var(--bp-graphite);"
@@ -74,7 +88,10 @@
 					{aboutData.name}
 				</h2>
 				<p class="mb-5 text-xs tracking-widest" style="color: var(--bp-red);">
-					REV — SOFTWARE / DATA ENGINEER
+					REV — {aboutData.role}
+				</p>
+				<p class="mb-4 text-[13px] leading-relaxed" style="color: var(--bp-graphite);">
+					{aboutData.headline}
 				</p>
 				<ul class="space-y-3">
 					{#each aboutData.description as line, i}
@@ -87,6 +104,34 @@
 				</ul>
 			</BpBox>
 		</div>
+
+		<!-- Featured work -->
+		{#if featured.length}
+			<BpBox label="Featured Work" i={2} cls="mt-10 p-6 pt-7">
+				<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+					{#each featured as project}
+						<div
+							class="flex flex-col items-start gap-3 border-l-2 pl-4"
+							style="border-color: var(--bp-ink);"
+						>
+							<h3 class="bp-title text-base" style="color: var(--bp-ink-strong);">
+								{project.name}
+							</h3>
+							<p class="text-[13px] leading-relaxed" style="color: var(--bp-graphite);">
+								{project.description[0]}
+							</p>
+							<div class="mt-auto flex flex-wrap gap-2">
+								{#each project.links as link}
+									<a href={link.url} target="_blank" rel="noopener noreferrer" class="bp-tab">
+										{link.label} ↗
+									</a>
+								{/each}
+							</div>
+						</div>
+					{/each}
+				</div>
+			</BpBox>
+		{/if}
 	{:else}
 		<p class="text-xs" style="color: var(--bp-ink);">LOADING SHEET 01…</p>
 	{/if}
